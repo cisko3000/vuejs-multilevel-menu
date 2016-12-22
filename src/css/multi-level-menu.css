@@ -1,0 +1,7 @@
+body {
+  font-size:1.8em;
+}
+.list > li {
+  background-color:#EEE;
+  width:300px;
+}
