@@ -1,0 +1,29 @@
+<template id="menu-template">
+  <div>
+  <div>{{menu.name}}
+    <span v-if="menu.options.length > 0" v-on:mouseenter="showOptions = !showOptions">&gt;&gt;</span>
+    <span v-else v-on:click="selectOption">OK</span>
+  </div>
+  <menu-children :options="menu.options" v-if="showOptions" v-on:went-out="showOptions = !showOptions"></menu-children>
+  </div>
+</template>  
+<template id="menu-options-template">
+  <ul class="list" v-on:mouseleave="sendUp">
+    <li v-for="choice in options">
+      <amenu-parent v-if="choice.options" :menu="choice"></amenu-parent>
+      <span v-else>{{ choice.name }}</span>
+    </li>
+  </ul>
+</template>
+
+<div id="app">
+  <div v-for="r in root">
+    <amenu-parent :menu="r"></amenu-parent>
+  </div>
+</div>
+
+
+
+
+
+
